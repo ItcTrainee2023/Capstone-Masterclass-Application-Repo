@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: app1-nginx-deployment
   labels:
-    app: capstone01
+    app: app1-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: capstone01
+      app: app1-nginx
   template:
     metadata:
       labels:
-        app: capstone01
+        app: app1-nginx
     spec:
       containers:
-        - name: capstone01
+        - name: app1-nginx
           image: aksforgecontainerregistry.azurecr.io/capstone01
           ports:
             - containerPort: 80
@@ -25,14 +25,11 @@ kind: Service
 metadata:
   name: app1-nginx-loadbalancer-service
   labels:
-    app: capstone01
+    app: app1-nginx
 spec:
   type: LoadBalancer
   selector:
-    app: capstone01
+    app: app1-nginx
   ports:
     - port: 80
       targetPort: 80
-
-
-

@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: capstone01
+  name: app1nginxaks 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: capstone01
+      app: app1nginxaks
   template:
     metadata:
       labels:
-        app: capstone01 
+        app: app1nginxaks 
     spec:
       containers:
-        - name: capstone01 
+        - name: app1nginxaks 
           image: aksforgecontainerregistry.azurecr.io/capstone01
           ports:
           - containerPort: 80
